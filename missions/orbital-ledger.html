@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050217" />
+  <meta name="description" content="Orbital Ledger — distributed event-sourced ledger, 2M+ events/sec, 14 ms p99." />
+  <meta property="og:title" content="Orbital Ledger // Mission 01" />
+  <meta property="og:description" content="A distributed, event-sourced ledger handling 2M+ events/sec." />
+  <meta property="og:type" content="article" />
+  <title>Orbital Ledger // Mission 01</title>
+
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+
+  <style>
+    body { background: #050217; color: #e7e5ff; margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="../index.html" class="nav__logo" aria-label="Home">
+        <span class="nav__logo-mark" aria-hidden="true">V</span>
+        <span data-text-flicker>VIVEK</span>
+      </a>
+      <span class="nav__clock" id="mission-clock" aria-hidden="true">
+        <span class="nav__clock-dot"></span>
+        <span id="mission-clock-text">MT 00:00:00</span>
+      </span>
+      <nav>
+        <ul class="nav__links">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="../index.html#contact" class="nav__cta" data-magnetic>Open Channel</a>
+    </div>
+  </header>
+
+  <main class="mission">
+    <div class="container">
+
+      <!-- ============ Header ============ -->
+      <header class="mission__header">
+        <a class="mission__back" href="../index.html#projects">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Return to Base
+        </a>
+
+        <span class="eyebrow reveal"><span data-typewriter data-text="MISSION_01.LOG"></span><span class="caret" aria-hidden="true"></span></span>
+
+        <h1 class="mission__title reveal" data-scramble>
+          Orbital <span class="accent">Ledger</span>
+        </h1>
+
+        <p class="mission__lede reveal" data-words>
+          A distributed, event-sourced ledger that handles <strong>2M+ events per second</strong>
+          with sub-15 ms p99 reads. Built to retire a legacy database that was buckling under
+          hot-row contention and audit replay times measured in hours.
+        </p>
+
+        <div class="mission__meta reveal" role="list">
+          <div class="mission__meta-cell" role="listitem">
+            <span class="mission__meta-label">Status</span>
+            <span class="mission__meta-value">Shipped</span>
+          </div>
+          <div class="mission__meta-cell" role="listitem">
+            <span class="mission__meta-label">Year</span>
+            <span class="mission__meta-value">2024</span>
+          </div>
+          <div class="mission__meta-cell" role="listitem">
+            <span class="mission__meta-label">Role</span>
+            <span class="mission__meta-value">Lead Engineer</span>
+          </div>
+          <div class="mission__meta-cell" role="listitem">
+            <span class="mission__meta-label">Team</span>
+            <span class="mission__meta-value">4 Engineers</span>
+          </div>
+        </div>
+
+        <div class="mission__actions reveal">
+          <a href="#" class="btn btn--primary" data-magnetic>
+            Live System
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+          <a href="#" class="btn btn--ghost">
+            Source
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- ============ Brief ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="BRIEF.MD"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>Mission <span class="accent">brief</span>.</h2>
+        <div class="mission__prose reveal" data-words>
+          <p>
+            The product had outgrown its single-writer Postgres ledger. Every payment, refund,
+            and reconciliation hit the same hot rows, and our nightly audit job needed eight
+            hours to replay a single day of activity. We had two months before the next
+            regulatory checkpoint.
+          </p>
+          <p>
+            The mandate: rebuild the ledger as the system of record, keep zero data loss
+            during cutover, and prove the new design under a synthetic <code>10x</code> peak.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ Problem ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="PROBLEM.MD"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>The <span class="accent">problem</span>.</h2>
+        <div class="mission__prose reveal" data-words>
+          <p>
+            <strong>Hot-row contention.</strong> The top 200 merchant accounts produced 80% of
+            traffic. Every transaction held a row lock on a balance row, serializing throughput
+            and capping us at roughly 1,200 writes per second.
+          </p>
+          <p>
+            <strong>Replay was destructive.</strong> Auditors wanted to re-derive any balance at
+            any point in time. The existing schema mutated rows in place; reconstructing state
+            required parsing tens of millions of triggered audit rows for a single account.
+          </p>
+          <p>
+            <strong>Region failover was theoretical.</strong> A regional outage would have meant
+            a manual failover with several minutes of write loss. Compliance considered this
+            unacceptable for the next audit cycle.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ Approach ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="APPROACH.MD"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>The <span class="accent">approach</span>.</h2>
+        <div class="mission__prose reveal" data-words>
+          <p>
+            We split the write path from the read path. Writes became <strong>immutable events</strong>
+            on a partitioned Kafka topic keyed by account, giving us linear scale and a natural
+            audit trail. Reads were served from <strong>projections</strong> rebuilt by a stateless
+            projector service, with hot balances cached in Redis behind a write-through invalidation hook.
+          </p>
+          <p>
+            Snapshots were taken every 10k events per account, so a fresh projector could rejoin
+            and catch up in seconds instead of hours. The whole pipeline ran multi-region active
+            with a CRDT-based reconciliation step for the rare cross-region conflicts.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============ Stack ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="STACK.MANIFEST"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>The <span class="accent">stack</span>.</h2>
+        <ul class="mission__stack reveal" role="list">
+          <li>Go</li>
+          <li>Kafka</li>
+          <li>PostgreSQL</li>
+          <li>Redis</li>
+          <li>Protobuf</li>
+          <li>Kubernetes</li>
+          <li>Terraform</li>
+          <li>OpenTelemetry</li>
+          <li>Grafana</li>
+        </ul>
+      </section>
+
+      <!-- ============ Architecture ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="ARCHITECTURE.DIAG"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>System <span class="accent">architecture</span>.</h2>
+        <pre class="mission__diagram reveal" aria-label="Architecture diagram">
+       <span class="m">CLIENT</span>
+          |
+          v
+   +------------------+
+   | <span class="c">API EDGE</span> (Go)   |
+   +------------------+
+          |  append-only writes
+          v
+   +------------------+        +------------------+
+   | <span class="m">KAFKA</span>  ledger.* |------->| <span class="m">KAFKA</span>  audit.*  |
+   |   28 partitions  |        |  cold archive    |
+   +------------------+        +------------------+
+          |
+          | replays
+          v
+   +------------------+        +------------------+
+   | <span class="c">PROJECTOR</span> (Go) |------->| <span class="a">REDIS</span> balances  |
+   |  stateless, x12  |        |  hot read cache  |
+   +------------------+        +------------------+
+          |
+          v
+   +------------------+
+   | <span class="c">POSTGRES</span>         |
+   |  snapshots + idx |
+   +------------------+
+        </pre>
+      </section>
+
+      <!-- ============ Outcomes ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="OUTCOMES.LOG"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>The <span class="accent">outcomes</span>.</h2>
+
+        <div class="mission__metrics reveal">
+          <div class="metric">
+            <span class="metric__value">
+              <span data-count="2.1" data-decimals="1">2.1</span><span class="metric__unit">M/s</span>
+            </span>
+            <span class="metric__label">Sustained Throughput</span>
+          </div>
+          <div class="metric">
+            <span class="metric__value">
+              <span data-count="14" data-decimals="0">14</span><span class="metric__unit">ms</span>
+            </span>
+            <span class="metric__label">Read p99</span>
+          </div>
+          <div class="metric">
+            <span class="metric__value">
+              <span data-count="99.99" data-decimals="2">99.99</span><span class="metric__unit">%</span>
+            </span>
+            <span class="metric__label">Uptime SLO</span>
+          </div>
+          <div class="metric">
+            <span class="metric__value">
+              <span data-count="35" data-decimals="0">35</span><span class="metric__unit">x</span>
+            </span>
+            <span class="metric__label">Replay Speed-Up</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Mission Log ============ -->
+      <section class="mission__section">
+        <span class="eyebrow reveal"><span data-typewriter data-text="MISSION_LOG.TXT"></span><span class="caret" aria-hidden="true"></span></span>
+        <h2 class="reveal" data-scramble>Mission <span class="accent">log</span>.</h2>
+
+        <ol class="mission__log reveal">
+          <li>
+            <span class="mission__log-time">WEEK 01 — 02</span>
+            <h3 class="mission__log-title">Discovery + Schema Design</h3>
+            <p class="mission__log-desc">Mapped the legacy schema, profiled hot rows, drafted the event grammar with stakeholders. Ran a one-day spike to validate Kafka partition strategy.</p>
+          </li>
+          <li>
+            <span class="mission__log-time">WEEK 03 — 05</span>
+            <h3 class="mission__log-title">Dual-Write Cutover</h3>
+            <p class="mission__log-desc">Shipped a shim that wrote to both the legacy DB and the new event stream. Built the projector and balance cache and ran continuous reconciliation against legacy reads.</p>
+          </li>
+          <li>
+            <span class="mission__log-time">WEEK 06 — 07</span>
+            <h3 class="mission__log-title">Load Testing + Tuning</h3>
+            <p class="mission__log-desc">Ran 10x synthetic peaks, tuned Kafka producer batching and Redis pipelining. Knocked p99 from 78 ms down to 14 ms. Validated multi-region failover.</p>
+          </li>
+          <li>
+            <span class="mission__log-time">WEEK 08</span>
+            <h3 class="mission__log-title">Cutover + Decommission</h3>
+            <p class="mission__log-desc">Flipped reads to the new system region-by-region with a 60-second rollback window. Decommissioned the legacy writer two weeks later. Zero data loss, zero customer-visible downtime.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ============ Next mission nav ============ -->
+      <nav class="mission__nav" aria-label="Mission navigation">
+        <a href="../index.html#projects">
+          <span class="mission__nav-label">&larr; Return</span>
+          <span class="mission__nav-title">All Missions</span>
+        </a>
+        <a href="../index.html#contact" class="is-right">
+          <span class="mission__nav-label">Open Channel &rarr;</span>
+          <span class="mission__nav-title">Get in Touch</span>
+        </a>
+      </nav>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Vivek &middot; Built with vanilla &amp; <a href="https://animejs.com" target="_blank" rel="noopener">anime.js</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/anime.min.js" defer></script>
+  <script src="../assets/js/pf-utils.js" defer></script>
+  <script src="../assets/js/pf-text.js" defer></script>
+  <script src="../assets/js/pf-fx.js" defer></script>
+  <script src="../assets/js/pf-ambient.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

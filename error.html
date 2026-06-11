@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#050217" />
+  <meta name="robots" content="noindex" />
+  <title>404 // SIGNAL LOST</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    body { background: #050217; color: #e7e5ff; margin: 0; font-family: 'Space Grotesk', system-ui, sans-serif; }
+  </style>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- starfield -->
+  <div class="starfield" id="starfield" aria-hidden="true"></div>
+
+  <main class="error">
+    <div class="error__inner">
+      <p class="error__signal">
+        <span class="error__signal-dot"></span>
+        <span data-typewriter data-text="SIGNAL LOST"></span>
+      </p>
+
+      <h1 class="error__code" data-text="404" aria-label="404">404</h1>
+
+      <p class="error__title" id="error-typed">
+        <span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <p class="error__lede">
+        The page you're looking for drifted out of orbit.
+        Our telemetry has it lost somewhere in the static between stars.
+      </p>
+
+      <a href="index.html" class="btn btn--primary" data-magnetic>
+        Return To Base
+        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <div class="error__meta" aria-hidden="true">
+        <span>STATUS: <b>UNREACHABLE</b></span>
+        <span>SECTOR: <b id="err-sector">--</b></span>
+        <span>UPTIME: <b id="err-uptime">--</b></span>
+        <span>CODE: <b>0x194</b></span>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/anime.min.js" defer></script>
+  <script src="assets/js/pf-utils.js" defer></script>
+  <script src="assets/js/pf-text.js" defer></script>
+  <script src="assets/js/pf-fx.js" defer></script>
+  <script src="assets/js/pf-ambient.js" defer></script>
+  <script src="assets/js/error.js" defer></script>
+</body>
+</html>
