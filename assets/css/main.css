@@ -517,6 +517,18 @@ section { padding-block: var(--section-y); position: relative; }
   }
 }
 
+/* On phone view the hero title wraps to 3–4 lines, which pushes the centered
+   .hero__inner downward until the Establish Contact button physically
+   overlaps the absolutely-positioned "// Descend" indicator at the bottom.
+   The Descend cue is also a desktop affordance — phone users already know to
+   scroll. Hiding it cleans up the crowded lower band and we add a little
+   bottom padding so the button keeps clearance from the wireframe Earth
+   below. */
+@media (max-width: 640px) {
+  .hero { padding-bottom: 80px; }
+  .hero__scroll { display: none; }
+}
+
 /* synthwave grid floor */
 .hero__grid {
   position: absolute;
@@ -644,7 +656,15 @@ section { padding-block: var(--section-y); position: relative; }
 .hero__subtitle {
   max-width: 60ch;
   font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-  color: var(--text-dim);
+  /* Slightly brighter than --text-dim so the copy reads cleanly when the
+     wireframe Earth slides behind it on phone view. The dark-halo text-shadow
+     is a classic CRT readability trick — it stays on-theme (it actually
+     reinforces the "transmission against deep space" feel) while guaranteeing
+     contrast against the cyan continent lines and the SF ping pulse. */
+  color: #c8cce6;
+  text-shadow:
+    0 0 14px rgba(5, 2, 23, 0.95),
+    0 1px 3px rgba(5, 2, 23, 0.85);
   margin: 0 0 36px;
   opacity: 0;
 }
